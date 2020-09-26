@@ -1,0 +1,250 @@
+<nav class="navbar navbar-expand-lg navbar-light nav-style">
+</nav>
+<section class="Title" style="margin-top:3%;">
+	<div>
+		<%= link_to image_tag("logo.png", border: 0,  width: 189.25, height: 41.7),
+		root_path, {:style=>" margin-top:15%; "} %>
+	</div>
+</section>
+<!--dotted line-->
+<section class="dotted-line1">
+	<div>
+		<svg x="0px" y="0px" width="70%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+</section>
+<!--dotted line-->
+
+<!--clock 오류-->
+<!--clock-->
+
+<%= form_for @content do |f| %>
+	<div class="input" style="height:25px;">
+		<%= f.text_field :today, placeholder: "Today is?", style: "margin-left: 25%; border: none; font-family: acumin-pro, sans-serif;", :id=>"message_input", :cols=>10, :rows=>2, :required => true %>
+	</div>
+	<hr style="height: 3px;
+    background-color: #c3c3c3;
+    width: 55%; margin-top:10px;">
+
+	<!--dotted line-->
+	<section class="dotted-line1" >
+		<div>
+			<svg x="0px" y="0px" width="70%" height="10" viewBox="0 0 395.9 1">
+				<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+			</svg>
+		</div>
+	</section>
+	<!--dotted line-->
+	<!--receipe-->
+	<div class="contents1" style="font-family: acumin-pro, sans-serif; font-weight:bold;">
+		Today's mood
+		<%= f.text_field :title1, value: "Today's mood", style: "display: none;" %>
+	</div>
+
+	<!--range bar-->
+	<div id="slidecontainer1">
+		<%= f.range_field :content1, :min=>0, :max=>100, :class=>"slider1", :id=>"myRange1", value: "50" %>
+		<p class="slid" style="font-family: acumin-pro, sans-serif; font-weight:bold;">$<span id="demo1"></span></p>
+	</div>
+	<!--range bar-->
+
+	<div class="contents2" style="font-family: acumin-pro, sans-serif; font-weight:bold;">
+		Today's weather
+		<%= f.text_field :title2, value: "Today's weather", style: "display: none;" %>
+	</div>
+
+	<div id="slidecontainer2">
+		<%= f.range_field :content2, :min=>0, :max=>100, :class=>"slider2", :id=>"myRange2", value: "50" %>
+		<p class="slid" style="font-family: acumin-pro, sans-serif; font-weight:bold;">$<span id="demo2"></span></p>
+	</div>
+	<!--range bar-->
+
+	<div class="contents3" style="font-family: acumin-pro, sans-serif; font-weight:bold;">
+		Today's task
+		<%= f.text_field :title3, value: "Today's task", style: "display: none;" %>
+	</div>
+
+	<div id="slidecontainer3">
+		<%= f.range_field :content3, :min=>0, :max=>100, :class=>"slider3", :id=>"myRange3", value: "50" %>
+		<p class="slid" style="font-family: acumin-pro, sans-serif; font-weight:bold;">$<span id="demo3"></span></p>
+	</div>
+	<!--range bar-->
+	<!--receipe-->
+
+	<!--dotted line-->
+	<div>
+		<svg x="0px" y="0px" width="70%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+	<!--dotted line-->
+	<section class="section2">
+		<div class="bonus" style="margin-top:0; margin-bottom:0;">
+			<button type="button" class="connect" id="show" onclick="dis()" style="border:none; background-color:white; font-size:15px; font-family: acumin-pro, sans-serif; font-weight:bold; color:#5e5e5e; width:300px; ">
+				+Add bonus price
+			</button>
+			<!--a id="add" class="add" onclick="event()" href="add"-->
+		</div>
+	</section>
+	<!--add-->
+
+	<div id="dis" style="display: none;">
+		<div id="container">
+			<div class="input">
+				<%= f.text_field :at1, placeholder: "1.... How was your day?", style: "padding:0; font-family: acumin-pro, sans-serif; font-weight:bold;", :class=>"up" %>
+			</div>
+			<!--range bar-->
+			<div id="slidecontainer1">
+				<%= f.range_field :ac1, :min=>0, :max=>100, :class=>"slider1", :id=>"myRange4", value: "0" %>
+				<p class="slid" style="font-family: acumin-pro, sans-serif; font-weight:bold;">$<span id="demo4"></span></p>
+			</div>
+			<!--range bar-->
+			<div class="input">
+				<%= f.text_field :at2, placeholder: "2.... How was your day?", style: "padding:0; font-family: acumin-pro, sans-serif; font-weight:bold;", :class=>"up" %>
+			</div>
+
+			<!--range bar-->
+			<div id="slidecontainer1">
+				<%= f.range_field :ac2, :min=>0, :max=>100, :class=>"slider1", :id=>"myRange5", value: "0" %>
+				<p class="slid" style="font-family: acumin-pro, sans-serif; font-weight:bold;">$<span id="demo5"></span></p>
+			</div>
+			<!--range bar-->
+
+			<div class="input">
+				<%= f.text_field :at3, placeholder: "3.... How was your day?", style: "padding:0; font-family: acumin-pro, sans-serif; font-weight:bold;", :class=>"up" %>
+			</div>
+
+			<!--range bar-->
+			<div id="slidecontainer1">
+				<%= f.range_field :ac3, :min=>0, :max=>100, :class=>"slider1", :id=>"myRange6", value: "0" %>
+				<p class="slid" style="font-family: acumin-pro, sans-serif; font-weight:bold;">$<span id="demo6"></span></p>
+			</div>
+			<!--range bar-->
+		</div>
+	</div>
+	<!--add-->
+	<!--dotted line-->
+	<div>
+		<svg x="0px" y="0px" width="70%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+	<!--dotted line-->
+
+	<div class="memo" style="font-family: acumin-pro, sans-serif; font-weight:bold;">
+		<p>
+			memo
+		</p>
+		<div class="message">
+			<label for="message"></label>
+			<%= f.text_area :memo, placeholder: "Write your day", style: "border: none; font-family: acumin-pro, sans-serif;", :id=>"message_input", :cols=>30, :rows=>5, :required => false %>
+		</div>
+	</div>
+	<div>
+		<img
+			style="float: left; width: 100px; margin-left: 10%;"
+			src="/assets/barcode-205f91ec4a098ebde99ad725ccfdb3d24fe8be7f449d09b6baa515bc4fc5513a.jpg"
+		/>
+	</div>
+	<div class="totalvalue">
+		<p class="total">Total : $<span id="total"></span></p>
+	</div>
+	<div>
+		<%= f.submit "UPDATE" %>
+	</div>
+<% end %>
+<!--range bar-->
+<script>
+	var slider1 = document.getElementById('myRange1');
+	var output1 = document.getElementById('demo1');
+	output1.innerHTML = slider1.value;
+
+	slider1.oninput = function () {
+		output1.innerHTML = this.value;
+	};
+</script>
+
+<script>
+	var slider2 = document.getElementById('myRange2');
+	var output2 = document.getElementById('demo2');
+	output2.innerHTML = slider2.value;
+
+	slider2.oninput = function () {
+		output2.innerHTML = this.value;
+	};
+</script>
+
+<script>
+	var slider3 = document.getElementById('myRange3');
+	var output3 = document.getElementById('demo3');
+	output3.innerHTML = slider3.value;
+
+	slider3.oninput = function () {
+		output3.innerHTML = this.value;
+	};
+</script>
+
+<script>
+	var slider4 = document.getElementById('myRange4');
+	var output4 = document.getElementById('demo4');
+	output4.innerHTML = slider4.value;
+
+	slider4.oninput = function () {
+		output4.innerHTML = this.value;
+	};
+</script>
+
+<script>
+	var slider5 = document.getElementById('myRange5');
+	var output5 = document.getElementById('demo5');
+	output5.innerHTML = slider5.value;
+
+	slider5.oninput = function () {
+		output5.innerHTML = this.value;
+	};
+</script>
+
+<script>
+	var slider6 = document.getElementById('myRange6');
+	var output6 = document.getElementById('demo6');
+	output6.innerHTML = slider6.value;
+
+	slider6.oninput = function () {
+		output6.innerHTML = this.value;
+	};
+</script>
+
+<script>
+	$(function () {
+		$('input[type=range]').change(getTotal);
+		getTotal();
+	});
+
+	function getTotal() {
+		var first = parseInt(slider1.value) || 0;
+		var second = parseInt(slider2.value) || 0;
+		var third = parseInt(slider3.value) || 0;
+		var four = parseInt(slider4.value) || 0;
+		var five = parseInt(slider5.value) || 0;
+		var six = parseInt(slider6.value) || 0;
+		document.getElementById('total').innerHTML = first + second + third + four + five + six;
+	}
+</script>
+
+<script>
+	function dis() {
+		if ($('#dis').css('display') == 'none') {
+			$('#dis').show();
+		} else {
+			$('#dis').hide();
+		}
+	}
+</script>
+<!--
+<script>
+	function event() {
+		document.getElementById('add').style.color = '#959595';
+	}
+</script>
+-->

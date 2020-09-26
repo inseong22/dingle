@@ -1,0 +1,136 @@
+<style>
+
+	div.container button{
+		background-color:white;
+		width:60%;
+		border:none;
+		color:#5e5e5e;
+		font-family: acumin-pro, sans-serif;
+	}
+	
+	.btn-1{
+		margin-top:0;
+		font-size:17px;
+	}
+
+	button:focus {
+  		outline: none;
+	}
+</style>
+
+<% today = Date.today %>
+<% year = today.strftime("%Y") %>
+
+<section class="menu">
+	<div>
+		<%= link_to image_tag("mypage.png", border: 0, width: 30, height: 30),
+		'/mypage', {:style=>"margin-left:80%; margin-bottom:2%; margin-top:8%;"} %>
+		<%= link_to image_tag("chart.png", border: 0, width: 30, height: 30),
+		'/chart', {:style=>"margin-left:80%; margin-top:0%; margin-top:0%;"} %>
+	</div>
+</section>
+
+<section class="Title" style="margin-top:3%;">
+	<div>
+		<%= link_to image_tag("logo.png", border: 0,  width: 189.25, height: 41.7),
+		'', {:style=>" margin-top:0; "} %>
+	</div>
+</section>
+
+<section class="plus" style="margin-top:3%;">
+	<div>
+		<%= link_to image_tag("plus.png", border: 0, width: 30, height: 30),
+		new_content_path, {:style=>" margin-top:5%; "} %>
+	</div>
+</section>
+
+<div class="year">
+	<h1 style="margin-top:5%; fot-size:15px; color:#5e5e5e; font-family: acumin-pro, sans-serif;">
+		 &#x0003C;&nbsp;&nbsp;&nbsp;&nbsp;  2020  &nbsp;&nbsp;&nbsp;&nbsp;&#x0003E;
+	</h1>
+</div>
+
+<div class="container" >
+
+<%= link_to '<button type="button">January</button>'.html_safe, '/january', class:"btn-1", style:"margin-top:10%;" %>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">February</button>'.html_safe, '/february', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">March</button>'.html_safe, '/march', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">April</button>'.html_safe, '/april', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">May</button>'.html_safe, '/may', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">June</button>'.html_safe, '/june', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">July</button>'.html_safe, '/july', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">August</button>'.html_safe, '/august', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">September</button>'.html_safe, '/september', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">October</button>'.html_safe, '/october', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">November</button>'.html_safe, '/november', :class=>"btn-1"%>
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+<%= link_to '<button type="button">December</button>'.html_safe, '/december', :class=>"btn-1"%>
+
+<div>
+	<svg x="0px" y="0px" width="60%" height="10" viewBox="0 0 395.9 1">
+		<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+	</svg>
+</div>
+	
+<div style="margin-bottom:10%;">
+	<img
+		style=" width: 60px; height:30px;  margin-top:10%;"
+		src="/assets/barcode-205f91ec4a098ebde99ad725ccfdb3d24fe8be7f449d09b6baa515bc4fc5513a.jpg"
+	/>
+</div>
+
+</div>

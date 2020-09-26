@@ -1,0 +1,116 @@
+<style>
+	#container {
+    min-width: 310px;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+	border: solid 1px white;
+}
+	
+	.highcharts-exporting-group {
+		display: none;
+	}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light nav-style">
+	<section class="Title" style="margin-top:3%;">
+		<div>
+			<%= link_to image_tag("logo.png", border: 0, width: 80, height: 20),
+			root_path, {:style=>" margin-top:8%; "} %>
+		</div>
+	</section>
+</nav>
+<section class="Title">
+	<div class="title" style="position:relative;">
+		<h1 class="today" style="font-family: acumin-pro, sans-serif; font-weight:bold;">RECEIPT</h1>
+		<h1 class="receipt" style="font-family: acumin-pro, sans-serif; font-weight:bold;">CHART</h1>
+		<%= link_to image_tag("logo.png", border: 0,  width: 40, height: 40),
+		'/chart_total', {:style=>" margin-top:0; position:absolute; right: 20%; top: 70%; "} %>
+	</div>
+</section>
+<!--dotted line-->
+<section class="dotted-line1" style="margin-bottom:15px;">
+	<div>
+		<svg x="0px" y="0px" width="70%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+</section>
+<!--dotted line-->
+
+<div id="container"></div>
+<%= link_to image_tag("barcode2.png", border: 0, width: 50, height: 60), '/chart', {:style=>" margin-top:0;  margin-left:5%; margin-right:5%;"} %> 
+&#8673;
+BUTTON
+&#8673;
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src=" https://code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+	
+<% a = [] %><% b = [] %><% c = [] %><% d = [] %><% e = [] %><% f = [] %>
+<% date = [] %>
+	
+<% @week.each do |p| %>
+<% a.append(p.content1) %><% b.append(p.content2) %><% c.append(p.content3) %><% d.append(p.ac1) %><% e.append(p.ac2) %><% f.append(p.ac3) %>
+<% da = [p.created_at.to_date] %>
+<% te = da.join("-") %>
+<% date.push(raw te) %>
+<%end%>
+
+var date1 = "<%= date[0] %>"
+var date2 = "<%= date[1] %>"
+var date3 = "<%= date[2] %>"
+var date4 = "<%= date[3] %>"
+var date5 = "<%= date[4] %>"
+var date6 = "<%= date[5] %>"
+var date7 = "<%= date[6] %>"
+
+var a = <%= a %>;
+var b = <%= b %>;
+var c = <%= c %>;
+var d = <%= d %>;
+var e = <%= e %>;
+var f = <%= f %>;
+
+var date = [date1, date2, date3, date4, date5, date6, date7]
+
+var chart;
+$(document).ready(function() {
+    chart = new Highcharts.Chart({
+        chart: {
+			backgroundColor: 'white',
+            renderTo: 'container',
+            defaultSeriesType: 'spline'
+        },
+		title: {
+        	text: 'Your Feeling for recent 7days'
+    	},
+		subtitle: {
+        	text: 'ver. each'
+   		},
+		yAxis: {
+        	title: {
+            	text: '$'
+        	}
+    	},
+		xAxis: {
+            categories: date
+        },
+        series: [
+            {
+                name: "Today's Mood",
+                data: a
+            }, {
+				name: "Today's Wether",
+				data: b
+			}, {
+				name: "Today's Task",
+				data: c
+			}
+			
+        ]                
+    });
+});
+</script>

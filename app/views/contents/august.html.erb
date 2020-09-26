@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light nav-style">
+</nav>
+<% today = Date.today %>
+<% date = today.strftime("%B, %Y") %>
+<% month = today.strftime("%B") %>
+<% year = today.strftime("%Y") %>
+<section class="Title" style="margin-top:3%;">
+	<div>
+		<%= link_to image_tag("logo.png", border: 0,  width: 189.25, height: 41.7),
+		root_path, {:style=>" margin-top:15%;"} %>
+		<a style="margin-top:2%; margin-bottom:2%; font-size:19px; font-family: acumin-pro, sans-serif; font-weight:normal;">August</a>
+	</div>
+	
+</section>
+
+<div id="column" style="position:relative; height: 40px; font-family: acumin-pro, sans-serif;">
+	<div style="position:absolute; top: 65%; left: 17%;">DATE</div>
+	<div style="position:absolute; top: 65%; left: 33%;">TITLE</div>
+	<div style="position:absolute; top: 65%; left: 74%;">AMT</div>
+</div>
+
+<!--dotted line-->
+<section class="dotted-line1" style="margin-top: 0; margin-bottom:5%;">
+	<div>
+		<svg x="0px" y="0px" width="70%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" style=" stroke: #373737; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 4, 20; stroke-dashoffset: 9;" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+</section>
+
+<% @contents.each do |content| %>
+<% if month == 'August' %>
+	<div style="position:relative; height: 30px; width:400px; margin-top: 0; ">
+		<div class="totalvalue">
+				<a
+					style="
+						position:absolute;
+						color: #191919;
+						font-size: 15px;
+						left: 31%;
+						margin-top: 0;
+						font-family: acumin-pro, sans-serif;
+						font-weight:normal;
+					"
+					href="<%= content_path(content) %>"
+					><%=content.today.truncate(13, omission: '...')%></a>
+				<a style="position:absolute; left: 18%; font-size: 15px; margin-top: 0; font-family: acumin-pro, sans-serif; font-weight:normal;"><%= content.created_at.strftime("%d") %></a>
+			</div>
+			<div class="totalvalue" style="position:absolute; left: 74.5%; font-size: 15px; font-family: acumin-pro, sans-serif; font-weight:normal;">
+				$<%= content.content1 + content.content2 + content.content3 + content.ac1 +
+				content.ac2 + content.ac3 %>
+			</div>
+
+		</div>
+<% else %>
+	<% nil %>
+<% end %>
+<% end %>
+
+<%= image_tag("barcode2.png", width: '60', height: '60', :style => "margin-top:10%;") %>
+
+<%= paginate @contents %>

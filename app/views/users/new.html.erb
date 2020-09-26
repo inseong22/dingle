@@ -1,0 +1,119 @@
+<style>
+	body {
+		width: 320px;
+		margin: 0 auto;
+		font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica,
+			Arial, 'Lucida Grande', sans-serif;
+		font-weight: 300;
+		background: #ccc;
+	}
+	@-webkit-keyframes enlarge {
+		0% {
+			padding: 15px 0;
+		}
+		100% {
+			padding: 30px 0;
+		}
+	}
+	@-webkit-keyframes reset {
+		0% {
+			padding: 30px 0;
+		}
+		100% {
+			padding: 15px 0;
+		}
+	}
+	/* Begin Login Form Component */
+	fieldset {
+		border: none;
+		background-color: #ffffff;
+		padding: 30px;
+		margin-top: 15%;
+		height: 400px;
+	}
+	fieldset h2 {
+		font-weight: bold;
+		font-size: 25px;
+		font-family: 'Archivo Black', sans-serif;
+		color: #191919;
+		margin: 0;
+		font-weight: normal;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+	fieldset .input:last-of-type {
+		margin-bottom: 10px;
+	}
+	fieldset input {
+		-webkit-appearance: none;
+		border: none;
+		border-bottom: dotted 1px #cccccc;
+		background: none;
+		padding: 15px 0;
+		display: block;
+		width: 100%;
+		color: #6db70e;
+		animation: reset 400ms;
+		-webkit-animation: reset 400ms;
+	}
+	fieldset input:focus::-webkit-input-placeholder {
+		color: #0099ff;
+	}
+	fieldset .mute {
+		float: right;
+		font-size: 10px;
+		font-weight: 100;
+		width: 70px;
+		color: #0099ff;
+		margin-bottom: 10%;
+		margin-top: 3%;
+	}
+	fieldset .right {
+		float: right;
+		font-size: 10px;
+		font-weight: 100;
+		color: #0099ff;
+	}
+	.connect {
+		background-color: #ffffff;
+		color: #191919;
+		border: 2px solid #959595;
+		border-radius: 2px;
+		min-height: 3%;
+		letter-spacing: 2px;
+		transition: 0.2s ease-in;
+		text-transform: uppercase;
+		margin-top: 10%;
+	}
+</style>
+
+<body>
+	<%= form_for @user do |f| %>
+		<fieldset style="margin-top: 50%;">
+			<h2>Dingle</h2>
+			<h2>Sign up</h2>
+			<div>
+				<%= flash[:notice] %>
+			</div>
+			<div class="input" style="font-family: 'Ramabhadra', sans-serif;">
+				<%= f.email_field :email, placeholder: "Enter Email"%>
+			</div>
+			<div class="input">
+				<%= f.password_field :password, placeholder: "Enter Password" %>
+			</div>
+			<div class="input">
+				<%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+			</div>
+			<div>
+				<img
+					style="float: left; width: 70px; margin-left: 10%; margin-top: 20%;"
+					src="/assets/barcode-205f91ec4a098ebde99ad725ccfdb3d24fe8be7f449d09b6baa515bc4fc5513a.jpg"
+				/>
+			</div>
+			<div class="totalvalue">
+				<p class="total" style="float: right; width: 100px; margin-top: 20%; margin-bottom: 0; padding:0;">DINGLE</p>
+			</div>
+			<%= f.submit 'Sign up', class: "mute connect" %>
+		</fieldset>
+	<% end %>
+</body>

@@ -1,0 +1,148 @@
+<style>
+	#container {
+	margin: 20px auto;
+    width: 80%;
+    height: 600px;
+	margin-top: 7%;
+	border: solid 2px #f1f1f1;
+	box-shadow: 1px 3px 7px 1px #a2a1a1;
+	background-color: white;
+	font-family: acumin-pro, sans-serif;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light nav-style">
+	<section class="Title" style="margin-top:3%;">
+		<div>
+			<%= link_to image_tag("logo.png", border: 0, width: 80, height: 20),
+			root_path, {:style=>" margin-top:8%; "} %>
+		</div>
+	</section>
+</nav>
+<section class="Title">
+	<div class="title">
+		<h1 class="receipt" style="font-family: acumin-pro, sans-serif;">MY PAGE</h1>
+	</div>
+</section>
+<!-- total price -->
+<% total1 = @total_price.sum(:content1) %>
+<% total2 = @total_price.sum(:content2) %>
+<% total3 = @total_price.sum(:content3) %>
+<% total4 = @total_price.sum(:ac1) %>
+<% total5 = @total_price.sum(:ac2) %>
+<% total6 = @total_price.sum(:ac3) %>
+<% if total1 == nil %>
+	<% total_price = 0 %>
+<% else %>
+	<% total_price = total1 + total2 + total3 + total4 + total5 + total6 %>
+<% end %>
+<!-- total price -->
+<!-- last 7days price -->
+<% a = [] %><% b = [] %><% c = [] %><% d = [] %><% e = [] %><% f = [] %>
+<% @week_price.each do |p| %>
+	<% a.append(p.content1) %><% b.append(p.content2) %><% c.append(p.content3) %><% d.append(p.ac1) %><% e.append(p.ac2) %><% f.append(p.ac3) %>
+<%end%>
+<% if a==[] || b==[] || c==[] || d==[] || e==[] || f==[] %>
+	<% recent_7days = 0 %>
+<% else %>
+	<% recent_7days = a.inject(:+) + b.inject(:+) + c.inject(:+) + d.inject(:+) + e.inject(:+) + f.inject(:+) %>
+<% end %>
+
+<% a1 = [] %><% b1 = [] %><% c1 = [] %><% d1 = [] %><% e1 = [] %><% f1 = [] %>
+<% @last_week.each do |p| %>
+	<% a1.append(p.content1) %><% b1.append(p.content2) %><% c1.append(p.content3) %><% d1.append(p.ac1) %><% e1.append(p.ac2) %><% f1.append(p.ac3) %>
+<%end%>
+<% if a1==[] || b1==[] || c1==[] || d1==[] || e1==[] || f1==[] %>
+	<% last_7days = 0 %>
+<% else %>
+	<% last_7days = a1.inject(:+) + b1.inject(:+) + c1.inject(:+) + d1.inject(:+) + e1.inject(:+) + f1.inject(:+) %>
+<% end %>
+<!-- last 7days price -->
+<!-- 7days average price -->
+<% week_average1 = @week_price.average(:content1).round %>
+<% week_average2 = @week_price.average(:content2).round %> 
+<% week_average3 = @week_price.average(:content3).round %> 
+<% week_average4 = @week_price.average(:ac1).round %> 
+<% week_average5 = @week_price.average(:ac2).round %> 
+<% week_average6 = @week_price.average(:ac3).round %> 
+<% if week_average1 == nil %>
+	<% week_average = 0 %>
+<% else %>
+	<% week_average = week_average1 + week_average2 + week_average3 + week_average4 + week_average5 + week_average6 %>
+<% end %>
+<!-- 7days average price -->
+
+
+<div id="container">
+	<div class="username" style = "font-size: 25px; font-weight: bold; margin-top:7%;">
+		<% if current_user %>
+		<% username = current_user.email.partition("@") %>
+		<h3 style = "font-size: 25px; font-weight: bold;">
+			<%= username[0] %>
+		</h3>
+		<% end %>
+	</div>
+	<div class="username" >
+		<a style = "float: left; width: 110px; margin-left: 10%; margin-top:20px;">The number of receipts</a>
+		<a style = "float: right; margin-right: 20%;  margin-top: 10%;"><%= @total_count %></a>
+	</div>
+	
+	<div class="username">
+		<a style = "float: left; width: 110px; margin-left: 10%; margin-right: 11%; margin-top:5%;">Total price</a>
+		<a style = "float: right; margin-right: 20%; margin-top:5%;">$<%= total_price %></a>
+	</div>
+	
+	<!--dotted line-->
+	<div>
+		<svg x="0px" y="0px" width="90%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+	<!--dotted line-->
+		
+	<div class="username">
+		<a style = "float: left; width: 110px; margin-left: 10%; margin-top:0;">Average price</a>
+		<a style = "float: right; margin-right: 20%; margin-top:0;">$<%= @total_average.round %></a>
+	</div>
+
+	<div class="username" >
+		<a style = "float: left; width: 130px; margin-left: 10%;">Average price for recent 7days</a>
+		<a style = "float: right; margin-right: 20%;  margin-top: 20%;">$<%= recent_7days %></a>
+	</div>
+	
+	<div class="username">
+		<a style = "float: left; width: 110px; margin-left: 10%; margin-right: 11%; margin-top:5%;">Average price for last 7days</a>
+		<a style = "float: right; margin-right: 20%; margin-top:10%;">$<%= last_7days %></a>
+	</div>
+	
+	<!--dotted line-->
+	<div>
+		<svg x="0px" y="0px" width="90%" height="10" viewBox="0 0 395.9 1">
+			<line class="line1" x1="0" y1="0.5" x2="395.9" y2="0.5" />
+		</svg>
+	</div>
+	<!--dotted line-->
+	<% if recent_7days - last_7days < 0 %>
+		<% dol = '-$' %>
+		<% value = last_7days - recent_7days %>
+	<% else %>
+		<% dol = '$' %>
+		<% value = recent_7days - last_7days %>
+	<% end %>
+	<div class="username">
+		<!--a style = "float: left; width: 110px; margin-left: 10%; margin-top:0;">Average price</a-->
+		<a style = "float: right; margin-right: 20%; margin-top:0;"><%= dol %><%= value %></a>
+	</div>
+	
+	<div>
+	<img
+		style="float: left; width: 100px; margin-left: 35%; margin-top:30%;"
+		src="/assets/barcode-205f91ec4a098ebde99ad725ccfdb3d24fe8be7f449d09b6baa515bc4fc5513a.jpg"
+	/>
+	</div>
+
+
+</div>
+<% if current_user %>
+<%= link_to '로그아웃하기', new_session_path(current_user.id), method: :delete %>
+<% end %>

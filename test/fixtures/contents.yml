@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title1: MyString
+  content1: 1
+  title2: MyString
+  content2: 1
+  title3: MyString
+  content3: 1
+  at1: MyString
+  ac1: 1
+  at2: MyString
+  ac2: 1
+  at3: MyString
+  ac3: 1
+  memo: MyText
+
+two:
+  title1: MyString
+  content1: 1
+  title2: MyString
+  content2: 1
+  title3: MyString
+  content3: 1
+  at1: MyString
+  ac1: 1
+  at2: MyString
+  ac2: 1
+  at3: MyString
+  ac3: 1
+  memo: MyText
