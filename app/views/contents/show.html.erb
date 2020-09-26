@@ -182,7 +182,6 @@
 </div>
 
 <div class="box">
-		<%=	button_to 'EDIT', edit_content_path(@content), :method => :get, style: "float: left; margin-left: 30%;" %>
-		<%=	button_to 'DELETE', content_path(@content), method: :delete,
-		data: {confirm: 'Are you sure?'}, style: "float: right; margin-right: 30%;" %>
+		<%= link_to image_tag("edit.png", border: 0, width: 30, height: 30), edit_content_path(@content), {:style=>"float: left; margin-left: 35%; margin-top:5%;", :method => :get} %>
+		<%= link_to image_tag("delete.png", border: 0, width: 30, height: 30), content_path(@content), {:style=>"float: right; margin-right: 35%;  margin-top:5%;", :method => :delete, data: {confirm: 'Are you sure?'}} %>
 </div>
